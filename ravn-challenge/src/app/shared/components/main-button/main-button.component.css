@@ -6,6 +6,10 @@
   border: none;
 }
 
+.mat-icon {
+  color: var(--color-neutral-1);
+}
+
 .main-button:hover {
   background-color: var(--color-primary-3);
 }

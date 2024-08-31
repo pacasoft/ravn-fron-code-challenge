@@ -68,6 +68,8 @@
   --mdc-dialog-supporting-text-color: var(--color-neutral-1);
   --mat-menu-item-hover-state-layer-color: var(--color-neutral-4);
 
+  --mat-badge-background-color: var(--color-primary-4);
+
   --mat-full-pseudo-checkbox-selected-icon-color: var(--color-neutral-1);
   --mat-full-pseudo-checkbox-selected-checkmark-color: #fafafa;
   --mat-full-pseudo-checkbox-unselected-icon-color: rgba(0, 0, 0, 0.54);
@@ -94,6 +96,9 @@
   --mdc-form-field-label-text-color: var(--color-neutral-1);
   --mdc-form-field-label-text-color: var(--color-neutral-1);
   --mdc-circular-progress-active-indicator-color: var(--color-primary-4);
+
+  --mat-tab-header-active-label-text-color: var(--color-primary-4);
+  --mdc-tab-indicator-active-indicator-color: var(--color-primary-4);
 
   --font-body-XL: 20px;
   --font-body-L: 18px;

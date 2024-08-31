@@ -1,3 +1,6 @@
 <button class="main-button" [class]="classType()">
+  @if(icon()) {
+  <mat-icon>{{icon()}}</mat-icon>
+  }
   {{text()}}
 </button>

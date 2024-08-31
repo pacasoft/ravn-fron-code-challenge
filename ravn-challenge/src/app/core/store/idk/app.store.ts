@@ -39,6 +39,23 @@ export const AppState = signalStore(
         },
 
 
+        setSidebarStatus(status: boolean) {
+            patchState(state, { sidebarOpen: status });
+        },
+        toggleSidebar() {
+            patchState(state, { sidebarOpen: !state.sidebarOpen });
+        },
+
+        setScreenSize: (smallScreen: boolean) => {
+            patchState(state, { smallScreen });
+            if (smallScreen) {
+                patchState(state, { sidebarOpen: false });
+            } else {
+                patchState(state, { sidebarOpen: true });
+            }
+        },
+
+
         login() {
         }
 

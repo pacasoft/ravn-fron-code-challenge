@@ -10,3 +10,8 @@
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
+.small-screen {
+  padding: 16px 24px 16px 24px;
+  background-color: var(--color-neutral-3);
+}

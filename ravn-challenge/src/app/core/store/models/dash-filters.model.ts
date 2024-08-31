@@ -1,7 +1,7 @@
 export interface IDashState {
-    taskView: 'LIST' | 'GRID';
+    taskView: string;
 }
 
 export const initialDashState: IDashState = {
-    taskView: 'GRID'
+    taskView: 'GRID',
 };

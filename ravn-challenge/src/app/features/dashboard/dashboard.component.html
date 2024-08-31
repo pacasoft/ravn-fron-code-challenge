@@ -1,9 +1,22 @@
 <app-layout>
-  <app-top-search-bar></app-top-search-bar>
 
+  @if(appStore.smallScreen()) {
+
+  <app-main-button (click)="openEditModal()" icon="add" classType="plus-floating-btn"></app-main-button>
+
+
+  <mat-tab-group>
+    <mat-tab label="Dashboard">
+      <app-grid-view></app-grid-view>
+    </mat-tab>
+    <mat-tab label="Task">
+      <app-list-view></app-list-view>
+    </mat-tab>
+  </mat-tab-group>
+  } @else {
   <mat-toolbar class="d-flex my-3">
     <div class="me-auto">
-      <mat-button-toggle-group [value]="dashStore.taskView()" (change)="onChangeView($event)"
+      <mat-button-toggle-group [value]="dashStore.taskView()" (change)="onChangeView($event.value)"
         hideSingleSelectionIndicator="true" name="fontStyle" aria-label="Font Style">
         <mat-button-toggle value="LIST">
           <mat-icon>menu</mat-icon>
@@ -23,6 +36,10 @@
   @if(dashStore.taskView() === 'GRID') {
   <app-grid-view></app-grid-view>
   }@else {
-  <app-list-view></app-list-view>
+  <div class="p-3">
+    <app-list-view></app-list-view>
+  </div>
   }
+  }
+
 </app-layout>

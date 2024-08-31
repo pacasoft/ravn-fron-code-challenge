@@ -81,6 +81,11 @@ Here is a screenshot of the task list view
 
 # Additional Info
 
+## Notifications
+
+A notification badge was added to know the number of filters active and the number of tasks that are due today
+![Notifications](screenshots/notifications.png)
+
 ## Login page
 
 A login page was created to add functionality, but the login only does client-side verification and gets and allow the profile user to enter by entering the **full name** and **email**.

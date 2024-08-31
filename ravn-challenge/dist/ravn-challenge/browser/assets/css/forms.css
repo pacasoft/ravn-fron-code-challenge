@@ -1,0 +1,68 @@
+.pseudohidden-input {
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  caret-color: var(--color-neutral-2) !important;
+  color: var(--color-neutral-1) !important;
+  background-color: var(--color-neutral-5) !important;
+}
+
+.mat-mdc-form-field-flex,
+.mat-mdc-form-field-flex * {
+  caret-color: var(--color-neutral-2) !important;
+  color: var(--color-neutral-1) !important;
+  background-color: var(--color-neutral-4) !important;
+  border-radius: 16px;
+}
+.mat-mdc-form-field-flex .mat-badge-content {
+  background-color: var(--color-primary-4) !important;
+}
+
+.mat-calendar-body-today {
+  border-color: var(--color-primary-4) !important;
+  border-radius: 2px !important;
+  background-color: var(--color-neutral-5) !important;
+}
+
+.mat-calendar-body-cell:hover .mat-calendar-body-cell-content,
+.mat-calendar-body-selected {
+  background-color: var(--color-primary-4) !important;
+  border-radius: 2px !important;
+}
+
+.mat-datepicker-actions {
+  border-top: 1px solid var(--color-primary-4);
+}
+
+.mat-mdc-checkbox .mdc-label {
+  color: var(--color-neutral-1) !important;
+}
+
+.mdc-checkbox__background {
+  border-color: var(--color-neutral-1) !important;
+}
+
+.mdc-checkbox--selected .mdc-checkbox__background {
+  border-color: var(--color-primary-4) !important;
+  background-color: var(--color-primary-4) !important;
+  color: var(--color-neutral-1) !important;
+}
+
+.mdc-checkbox
+  .mdc-checkbox__native-control:enabled:checked
+  ~ .mdc-checkbox__background,
+.mdc-checkbox
+  .mdc-checkbox__native-control:enabled:indeterminate
+  ~ .mdc-checkbox__background,
+.mdc-checkbox
+  .mdc-checkbox__native-control[data-indeterminate="true"]:enabled
+  ~ .mdc-checkbox__background {
+  border-color: var(--color-primary-4) !important;
+  background-color: var(--color-primary-4) !important;
+  color: var(--color-neutral-1) !important;
+}

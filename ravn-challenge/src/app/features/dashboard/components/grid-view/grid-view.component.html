@@ -1,15 +1,14 @@
 <div cdkDropListGroup class="task-grid">
   <!-- BACKLOG  -->
   <div class="task-column">
-    <app-task-column [class.loading-spinner]="taskStore.loading()" [attr.status]="'BACKLOG'"
-      [cdkDropListData]="taskStore.getTasksBacklog()" cdkDropList (cdkDropListDropped)="drop($event)"
-      [loading]="taskStore.loading()" title="Backlog" [cant]="taskStore.getNumberTasksBacklog()"
-      [taskList]="taskStore.getTasksBacklog()"></app-task-column>
+    <app-task-column [attr.status]="'BACKLOG'" [cdkDropListData]="taskStore.getTasksBacklog()" cdkDropList
+      (cdkDropListDropped)="drop($event)" [loading]="taskStore.loading()" title="Backlog"
+      [cant]="taskStore.getNumberTasksBacklog()" [taskList]="taskStore.getTasksBacklog()"></app-task-column>
   </div>
   <!-- TODO  -->
   <div class="task-column">
     <app-task-column [attr.status]="'TODO'" [cdkDropListData]="taskStore.getTasksToDo()" cdkDropList
-      (cdkDropListDropped)="drop($event)" [loading]="taskStore.loading()" title="Working"
+      (cdkDropListDropped)="drop($event)" [loading]="taskStore.loading()" title="To Do"
       [cant]="taskStore.getNumberTasksToDo()" [taskList]="taskStore.getTasksToDo()"></app-task-column>
   </div>
   <!-- IN PROGRESS  -->
