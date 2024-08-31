@@ -7,9 +7,14 @@
 }
 
 .secondary-button:hover {
-    background-color: var(--color-neutral-4);
+  background-color: var(--color-neutral-4);
 }
 
 .primary-color {
   color: var(--color-primary-4);
+}
+
+.neutral-color {
+  color: var(--color-neutral-2);
+  background-color: var(--color-neutral-5);
 }

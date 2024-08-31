@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { TaskListStore } from '../../../../core/store/idk/task.store';
 import { DeleteTaskModalComponent } from '../../../../shared/components/delete-task-modal/delete-task-modal.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { AppState } from '../../../../core/store/idk/app.store';
 
 @Component({
   selector: 'app-task-card',
@@ -36,6 +37,8 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 export class TaskCardComponent {
   taskData = input<Task>(initialTask);
 
+  appStore = inject(AppState);
+
 
   statusDueDate = computed(() => {
     let date = new Date(this.taskData().dueDate);
@@ -55,8 +58,15 @@ export class TaskCardComponent {
 
   readonly dialog = inject(MatDialog);
   openEditModal() {
+    let width = this.appStore.smallScreen() ? '100%' : 'auto';
+    let height = this.appStore.smallScreen() ? '100%' : 'auto';
+
     this.dialog.open(EditTaskModalComponent, {
       data: this.taskData(),
+      width: width,
+      height: height,
+      maxWidth: '100vw',
+      maxHeight: '100vh',
     });
   }
 

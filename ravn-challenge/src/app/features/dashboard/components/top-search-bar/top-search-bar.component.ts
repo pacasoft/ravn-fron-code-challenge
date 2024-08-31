@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, signal, ViewChild } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -10,12 +10,19 @@ import { MatMenuModule } from '@angular/material/menu';
 import { PointEstimate, Status, Tag } from '../../../../core/store/models/tasks.model';
 import { PointsPipe } from '../../../../shared/pipes/points.pipe';
 import { DueDatePipe } from '../../../../shared/pipes/due-date.pipe';
-import { UsuarioStore } from '../../../../core/store/idk/user.store';
+import { UserStore } from '../../../../core/store/idk/user.store';
 import { User } from '../../../../core/store/models/usuario.models';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerInputEvent, MatDatepickerModule } from '@angular/material/datepicker';
 import { CommonModule } from '@angular/common';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { AppState } from '../../../../core/store/idk/app.store';
+import { MatDialog } from '@angular/material/dialog';
+import { SearchModalComponent } from '../search-modal/search-modal.component';
+import { SearchFilterBarComponent } from '../search-filter-bar/search-filter-bar.component';
+import { MatBadgeModule } from '@angular/material/badge';
+import { SidenavService } from '../../../../core/services/sidenav.service';
 
 @Component({
   selector: 'app-top-search-bar',
@@ -29,12 +36,13 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 
     TagComponent,
     MatMenuModule,
+    SearchFilterBarComponent,
 
     PointsPipe,
     DueDatePipe,
     MatCheckboxModule,
     MatDatepickerModule,
-
+    MatBadgeModule,
     CommonModule,
 
   ],
@@ -45,9 +53,27 @@ import { provideNativeDateAdapter } from '@angular/material/core';
   styleUrl: './top-search-bar.component.css'
 })
 export class TopSearchBarComponent {
-  searchText = new FormControl(null);
+  searchText = new FormControl('');
   taskStore = inject(TaskListStore);
-  usersStore = inject(UsuarioStore);
+  usersStore = inject(UserStore);
+  appStore = inject(AppState);
+
+  readonly dialog = inject(MatDialog);
+  openSearchModal() {
+    this.dialog.open(SearchModalComponent, {
+      width: '100%',
+      height: '100%',
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+    });
+
+  }
+
+  @ViewChild('sidebar') sidebar: any;
+  openSidebar() {
+    this.sideNavService.toggle();
+
+  }
 
   onNameChange() {
     this.taskStore.setNameFilter(this.searchText.value ?? "");
@@ -55,44 +81,13 @@ export class TopSearchBarComponent {
     this.taskStore.loadAllTasks();
   }
 
-  setStatus(status: string
-  ) {
-    this.taskStore.setStatusFilter(
-      Status[status as keyof typeof Status]
-    );
+  clearNameFilter() {
+    this.searchText.patchValue('');
+    this.taskStore.setNameFilter("");
+
     this.taskStore.loadAllTasks();
   }
 
-  setPointEstimate(pointEstimate: string | null) {
-    this.taskStore.setPointEstimateFilter(
-      PointEstimate[pointEstimate as keyof typeof PointEstimate]
-    );
-    this.taskStore.loadAllTasks();
-  }
-
-
-  setAssignee(assignee: User | null) {
-    this.taskStore.setAssigneeFilter(assignee);
-    this.taskStore.loadAllTasks();
-  }
-
-  setOwner(user: User | null) {
-    this.taskStore.setOwnerFilter(user);
-    this.taskStore.loadAllTasks();
-  }
-
-  handleSetDueDate(event: MatDatepickerInputEvent<Date>) {
-    console.log(event);
-
-    this.taskStore.setDueDateFilter(event.value);
-    this.taskStore.loadAllTasks();
-  }
-
-  changeTagsCheck(tag: { name: Tag, checked: boolean }) {
-    // add a promise with timeout to simulate a request
-    this.taskStore.setTagsFilter(tag);
-    this.taskStore.loadAllTasks();
-  }
-
+  constructor(private sideNavService: SidenavService) { }
 
 }

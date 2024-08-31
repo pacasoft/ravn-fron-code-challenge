@@ -1,0 +1,9 @@
+@media screen and (max-width: 768px) {
+  .mat-mdc-dialog-container.mat-mdc-dialog-container .mdc-dialog__surface {
+    background-color: var(--color-neutral-5) !important;
+  }
+
+  .taskNameInput {
+    background-color: var(--color-neutral-5) !important;
+  }
+}

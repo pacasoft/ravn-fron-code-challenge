@@ -35,7 +35,7 @@
   background-color: var(--color-neutral-4) !important;
   /* padding: 1rem; */
   padding-top: 1.5rem;
-  margin: 16px 0 16px 16px;
+  margin: 16px 16px 16px 16px;
   border-radius: 16px;
   height: 90vh;
 }

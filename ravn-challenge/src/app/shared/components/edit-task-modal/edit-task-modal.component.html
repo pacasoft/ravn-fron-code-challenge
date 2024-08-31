@@ -1,10 +1,19 @@
-<h2 mat-dialog-title>
+<div mat-dialog-title>
+  @if(appStore.smallScreen()) {
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <mat-icon (click)="handleClearData()">close</mat-icon>
+
+    <app-secondary-button (click)="handleUpdateData()" classType="neutral-color" text="Create"></app-secondary-button>
+
+  </div>
+  }
+
   <input class="taskNameInput" matInput placeholder="Name" [value]="data.name" (change)="setName($event)">
 
-</h2>
+</div>
 <mat-dialog-content>
 
-  <div class="d-flex">
+  <div class="d-flex" [ngClass]="{'flex-column gap-3':appStore.smallScreen()}">
     <!-- STATUS -->
     <div class="mx-1 estimatePicker">
       @if(data.status){
@@ -129,8 +138,8 @@
       <div class="d-flex align-items-center tagChip white-tag clickable" (click)="picker.open()">
         <!-- <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>> -->
 
-        <input hidden matInput (dateInput)="handleSetDueDate($event)" (dateChange)="handleSetDueDate($event)"
-          [matDatepicker]="picker">
+        <input class="pseudohidden-input" matInput (dateInput)="handleSetDueDate($event)"
+          (dateChange)="handleSetDueDate($event)" [matDatepicker]="picker">
 
         <mat-icon class="me-2">event_available</mat-icon>
 
@@ -155,7 +164,9 @@
   </div>
 
 </mat-dialog-content>
-<mat-dialog-actions class="d-flex justify-content-end">
+@if(!appStore.smallScreen()) {
+<mat-dialog-actions align="end">
   <app-secondary-button (click)="handleClearData()" class="me-2" text="Cancel"></app-secondary-button>
   <app-main-button (click)="handleUpdateData()" [text]="data.id ? 'Update' : 'Create' "></app-main-button>
 </mat-dialog-actions>
+}

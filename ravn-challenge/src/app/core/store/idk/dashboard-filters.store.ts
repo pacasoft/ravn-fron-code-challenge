@@ -5,7 +5,7 @@ export const DashboardStore = signalStore(
     { providedIn: 'root' },
     withState(initialDashState),
     withMethods((state) => ({
-        updateTaskView: (taskView: 'LIST' | 'GRID') => {
+        updateTaskView: (taskView: string) => {
             patchState(state, { taskView });
         }
     })),

@@ -1,0 +1,9 @@
+.plus-floating-btn {
+  position: fixed;
+  line-height: 10px;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  border-radius: 50% !important;
+  padding: 8px !important;
+}

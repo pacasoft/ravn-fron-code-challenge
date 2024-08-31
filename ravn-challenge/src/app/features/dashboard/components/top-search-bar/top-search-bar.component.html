@@ -1,3 +1,15 @@
+@if(appStore.smallScreen()) {
+<div class="d-flex small-screen align-items-center">
+  <app-avatar (click)="openSidebar()" [size]="40"> </app-avatar>
+
+  <div class="ms-auto">
+    <mat-icon (click)="openSearchModal()" [matBadge]="taskStore.filtersCount()"
+      [matBadgeHidden]="!taskStore.filtersCount()" class="me-3">search</mat-icon>
+    <mat-icon [matBadge]="taskStore.getNumberNotifications()"
+      [matBadgeHidden]="!taskStore.getNumberNotifications()">notifications</mat-icon>
+  </div>
+</div>
+} @else {
 <div class="search-bar-container">
   <mat-form-field subscriptSizing="dynamic" class="w-100 search-bar">
     <mat-icon matPrefix>search</mat-icon>
@@ -5,201 +17,14 @@
 
     <div class="search-bar-suffix" matSuffix>
       @if(searchText.value) {
-      <mat-icon class="me-2">cancel</mat-icon>
+      <mat-icon (click)="clearNameFilter()" class="me-2">cancel</mat-icon>
       }
-      <mat-icon class="me-2">notifications</mat-icon>
+      <mat-icon class="me-2" [matBadge]="taskStore.getNumberNotifications()"
+        [matBadgeHidden]="!taskStore.getNumberNotifications()">notifications</mat-icon>
       <app-avatar [size]="40"> </app-avatar>
     </div>
   </mat-form-field>
 </div>
 
-<div class="d-flex w-100 flex-wrap">
-  <!-- STATUS -->
-  <div class="mx-1 estimatePicker flex-fill">
-    @if(taskStore.filters.status()){
-    <app-tag tagIcon="task" [tagName]="taskStore.filters.status()!" classType="white-tag clickable"
-      [matMenuTriggerFor]="statusMenu"></app-tag>
-    }@else {
-    <app-tag tagIcon="task" tagName="STATUS" classType="white-tag clickable" [matMenuTriggerFor]="statusMenu"></app-tag>
-    }
-
-    <mat-menu #statusMenu="matMenu">
-      <p class="menu-title">STATUS</p>
-      <button mat-menu-item (click)="setStatus('BACKLOG')">
-        <mat-icon>task</mat-icon>
-        <span>BACKLOG</span>
-      </button>
-      <button mat-menu-item (click)="setStatus('TODO')">
-        <mat-icon>task</mat-icon>
-        <span>TODO</span>
-      </button>
-      <button mat-menu-item (click)="setStatus('IN_PROGRESS')">
-        <mat-icon>task</mat-icon>
-        <span>IN_PROGRESS</span>
-      </button>
-      <button mat-menu-item (click)="setStatus('DONE')">
-        <mat-icon>task</mat-icon>
-        <span>DONE</span>
-      </button>
-      <button mat-menu-item (click)="setStatus('CANCELLED')">
-        <mat-icon>task</mat-icon>
-        <span>CANCELLED</span>
-      </button>
-    </mat-menu>
-  </div>
-
-  <!-- ESTIMATE POINTS -->
-  <div class="mx-1 estimatePicker flex-fill">
-    @if(taskStore.filters.pointEstimate()){
-    <app-tag tagIcon="exposure" [tagName]=" taskStore.filters.pointEstimate()! | points "
-      classType="white-tag clickable" [matMenuTriggerFor]="menu"></app-tag>
-    }@else {
-    <app-tag tagIcon="exposure" tagName="ESTIMATE" classType="white-tag clickable" [matMenuTriggerFor]="menu"></app-tag>
-    }
-
-    <mat-menu #menu="matMenu">
-      <p class="menu-title">Estimate</p>
-      <button mat-menu-item (click)="setPointEstimate(null)">
-        <mat-icon>exposure</mat-icon>
-        <span>All</span>
-      </button>
-      <button mat-menu-item (click)="setPointEstimate('ZERO')">
-        <mat-icon>exposure</mat-icon>
-        <span>0 Points</span>
-      </button>
-      <button mat-menu-item (click)="setPointEstimate('ONE')">
-        <mat-icon>exposure</mat-icon>
-        <span>1 Points</span>
-      </button>
-      <button mat-menu-item (click)="setPointEstimate('TWO')">
-        <mat-icon>exposure</mat-icon>
-        <span>2 Points</span>
-      </button>
-      <button mat-menu-item (click)="setPointEstimate('FOUR')">
-        <mat-icon>exposure</mat-icon>
-        <span>4 Points</span>
-      </button>
-      <button mat-menu-item (click)="setPointEstimate('EIGHT')">
-        <mat-icon>exposure</mat-icon>
-        <span>8 Points</span>
-      </button>
-    </mat-menu>
-  </div>
-
-  <!-- ASSIGNEE -->
-  <div class="mx-1 estimatePicker flex-fill">
-    @if(taskStore.filters.assigneeId()) {
-    <div class="d-flex align-items-center" [matMenuTriggerFor]="assigneeMenu">
-      <app-avatar class="me-2" [size]="32" [imgSrc]="taskStore.filters.assigneeAvatar()!"></app-avatar>
-      <span>{{taskStore.filters.assigneeName()}}</span>
-    </div>
-    } @else {
-    <app-tag [matMenuTriggerFor]="assigneeMenu" tagIcon="person" tagName="Assignee"
-      classType="white-tag clickable"></app-tag>
-    }
-
-    <mat-menu #assigneeMenu="matMenu">
-      <p class="menu-title">Assignees</p>
-
-      <button mat-menu-item (click)="setAssignee(null)">
-        <div class="d-flex align-items-center">
-          <app-avatar class="me-2" [size]="32"></app-avatar>
-          <span>All users</span>
-        </div>
-      </button>
-      @for(user of usersStore.users(); track user) {
-      <button mat-menu-item (click)="setAssignee(user)">
-        <div class="d-flex align-items-center">
-          <app-avatar class="me-2" [size]="32" [imgSrc]="user.avatar"></app-avatar>
-          <span>{{user.fullName}}</span>
-        </div>
-      </button>
-      }
-
-    </mat-menu>
-  </div>
-
-  <!-- TAGS -->
-  <div class="mx-1 estimatePicker flex-fill">
-    @if(taskStore.filters.tags().length){
-    <app-tag [tagName]="taskStore.filters.tags()[0]" classType="white-tag clickable"
-      [matMenuTriggerFor]="menuTags"></app-tag>
-    }@else {
-    <app-tag tagIcon="shoppingmode" tagName="Label" classType="white-tag clickable"
-      [matMenuTriggerFor]="menuTags"></app-tag>
-    }
-
-    <mat-menu #menuTags="matMenu">
-      <p class="menu-title">Tags</p>
-
-      @for(tag of taskStore.tagList(); track tag; let idx = $index) {
-      <button mat-menu-item (click)="$event.stopPropagation();changeTagsCheck(tag)">
-        <mat-checkbox [checked]="tag.checked">
-          {{tag.name}}
-        </mat-checkbox>
-      </button>
-      }
-    </mat-menu>
-  </div>
-
-  <!-- DUE DATE -->
-  <div class="mx-1 estimatePicker flex-fill">
-    <div class="d-flex align-items-center tagChip white-tag clickable" (click)="picker.open()">
-      <!-- <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>> -->
-
-      <input hidden matInput (dateInput)="handleSetDueDate($event)" (dateChange)="handleSetDueDate($event)"
-        [matDatepicker]="picker">
-
-      <mat-icon class="me-2">event_available</mat-icon>
-
-      <mat-datepicker #picker>
-        <!-- <mat-datepicker-actions>
-          <app-secondary-button matDatepickerApply class="w-100 text-center" text="Today"
-            classType="primary-color w-100" (click)="setTodayDate()"></app-secondary-button>
-
-        </mat-datepicker-actions> -->
-      </mat-datepicker>
-      @if(taskStore.filters.dueDate()) {
-      <span>{{taskStore.filters.dueDate() | date:'mediumDate' }}</span>
-      } @else {
-      <span>Due date</span>
-      }
-    </div>
-
-
-  </div>
-
-  <!-- OWNER -->
-  <div class="mx-1 estimatePicker flex-fill">
-    @if(taskStore.filters.ownerId()) {
-    <div class="d-flex align-items-center" [matMenuTriggerFor]="ownerMenu">
-      <app-avatar class="me-2" [size]="32" [imgSrc]="taskStore.filters.ownerAvatar()!"></app-avatar>
-      <span>{{taskStore.filters.ownerName()}}</span>
-    </div>
-    } @else {
-    <app-tag [matMenuTriggerFor]="ownerMenu" tagIcon="person" tagName="Owner" classType="white-tag clickable"></app-tag>
-    }
-
-    <mat-menu #ownerMenu="matMenu">
-      <p class="menu-title">Owners...</p>
-
-      <button mat-menu-item (click)="setOwner(null)">
-        <div class="d-flex align-items-center">
-          <app-avatar class="me-2" [size]="32"></app-avatar>
-          <span>All users</span>
-        </div>
-      </button>
-      @for(user of usersStore.users(); track user) {
-      <button mat-menu-item (click)="setOwner(user)">
-        <div class="d-flex align-items-center">
-          <app-avatar class="me-2" [size]="32" [imgSrc]="user.avatar"></app-avatar>
-          <span>{{user.fullName}}</span>
-        </div>
-      </button>
-      }
-
-    </mat-menu>
-  </div>
-
-
-</div>
+<app-search-filter-bar></app-search-filter-bar>
+}

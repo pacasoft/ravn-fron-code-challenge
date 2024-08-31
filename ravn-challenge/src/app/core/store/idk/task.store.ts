@@ -100,6 +100,26 @@ export const TaskListStore = signalStore(
             return tagList;
         }),
 
+        filtersCount: computed(() => {
+            let count = 0;
+            if (state.filters.name()) count++;
+            if (state.filters.assigneeId()) count++;
+            if (state.filters.dueDate()) count++;
+            if (state.filters.ownerId()) count++;
+            if (state.filters.status()) count++;
+            if (state.filters.tags().length > 0) count++;
+            if (state.filters.pointEstimate()) count++;
+
+            return count;
+        }),
+
+        getNumberNotifications: computed(() => {
+            // return tasks that are due today
+            return state.tasks().filter(task => {
+                let date = new Date(task.dueDate);
+                return date.getDate() === new Date().getDate();
+            }).length;
+        }),
 
     })),
     withMethods((state, taskService = inject(TaskService), _snackBar = inject(MatSnackBar)) => ({

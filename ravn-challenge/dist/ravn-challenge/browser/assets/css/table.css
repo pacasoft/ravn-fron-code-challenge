@@ -1,0 +1,65 @@
+.nameCol {
+  width: 40%;
+  min-width: 500px;
+}
+
+.tagsCol {
+  width: 20%;
+  min-width: 168px;
+}
+.estimateCol {
+  width: 10%;
+  min-width: 140px;
+}
+.userCol {
+  width: 20%;
+  min-width: 168px;
+}
+.dueCol {
+  width: 10%;
+  min-width: 132px;
+}
+
+/* add border to table */
+.mat-expansion-panel {
+  min-width: 1108px;
+}
+.task-table table,
+.task-table th,
+.task-table td,
+.task-table tr {
+  border: 1px solid var(--color-neutral-3) !important;
+  background-color: var(--color-neutral-4) !important;
+  color: var(--color-neutral-1) !important;
+  font-size: var(--font-body-M) !important;
+}
+.mat-expansion-panel-body {
+  padding: 0px !important;
+}
+@media screen and (max-width: 768px) {
+  .mat-expansion-panel {
+    min-width: 908px;
+  }
+
+  .nameCol {
+    width: 40%;
+    min-width: 300px;
+  }
+
+  .tagsCol {
+    width: 20%;
+    min-width: 168px;
+  }
+  .estimateCol {
+    width: 10%;
+    min-width: 140px;
+  }
+  .userCol {
+    width: 20%;
+    min-width: 168px;
+  }
+  .dueCol {
+    width: 10%;
+    min-width: 132px;
+  }
+}

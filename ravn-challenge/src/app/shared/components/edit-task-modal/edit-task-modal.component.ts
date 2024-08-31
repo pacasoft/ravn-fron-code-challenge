@@ -12,7 +12,7 @@ import { TagComponent } from '../tag/tag.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { PointsPipe } from '../../pipes/points.pipe';
-import { UsuarioStore } from '../../../core/store/idk/user.store';
+import { UserStore } from '../../../core/store/idk/user.store';
 import { AvatarComponent } from '../avatar/avatar.component';
 import { User } from '../../../core/store/models/usuario.models';
 import { MatDatepicker, MatDatepickerInputEvent, MatDatepickerModule } from '@angular/material/datepicker';
@@ -25,6 +25,7 @@ import { MainButtonComponent } from '../main-button/main-button.component';
 import { TaskListStore } from '../../../core/store/idk/task.store';
 import { FormsModule } from '@angular/forms';
 import { TaskStatusPipe } from '../../pipes/task-status.pipe';
+import { AppState } from '../../../core/store/idk/app.store';
 
 @Component({
   selector: 'app-edit-task-modal',
@@ -63,6 +64,7 @@ export class EditTaskModalComponent {
   @ViewChild('picker') picker!: MatDatepicker<Date>;
   readonly dialogRef = inject(MatDialogRef<EditTaskModalComponent>);
 
+  appStore = inject(AppState);
 
   data = inject<Task>(MAT_DIALOG_DATA);
 
@@ -120,7 +122,7 @@ export class EditTaskModalComponent {
 
 
 
-  usersStore = inject(UsuarioStore);
+  usersStore = inject(UserStore);
 
   setPointEstimate(point: 'ZERO' | 'ONE' | 'TWO' | 'FOUR' | 'EIGHT') {
     this.data = {
