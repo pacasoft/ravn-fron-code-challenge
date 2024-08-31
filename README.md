@@ -8,7 +8,7 @@
 - [Additional Info](#additional-info)
 - [Demo](#demo)
 
-# Setup/Running instructions
+# :rocket: Setup/Running instructions
 
 First, you need to clone the repository like this:
 
