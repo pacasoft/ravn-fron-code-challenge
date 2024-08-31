@@ -37,6 +37,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ftp.huellitasvetspa.com
+          local-dir: /home/runner/work/ravn-fron-code-challenge/ravn-fron-code-challenge/ravn-challenge/dist/ravn-challenge
           username: ravn-user@ravn-challenge.pacasoft.cloud
           password: ${{ secrets.FTPPASSWORD }}
           protocol: ftps
