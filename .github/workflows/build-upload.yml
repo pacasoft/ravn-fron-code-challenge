@@ -10,9 +10,6 @@ on:
     branches:
       - main
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   web-deploy:
@@ -37,7 +34,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ftp.huellitasvetspa.com
-          local-dir: /home/runner/work/ravn-fron-code-challenge/ravn-fron-code-challenge/ravn-challenge/dist/ravn-challenge/browser/
+          local-dir: /home/runner/work/ravn-fron-code-challenge/ravn-fron-code-challenge/ravn-challenge/browser/
           username: ravn-user@ravn-challenge.pacasoft.cloud
           password: ${{ secrets.FTPPASSWORD }}
           protocol: ftps

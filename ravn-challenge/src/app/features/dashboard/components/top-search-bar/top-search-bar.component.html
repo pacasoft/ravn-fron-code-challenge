@@ -19,7 +19,7 @@
       @if(searchText.value) {
       <mat-icon (click)="clearNameFilter()" class="me-2">cancel</mat-icon>
       }
-      <mat-icon class="me-2" [matBadge]="taskStore.getNumberNotifications()"
+      <mat-icon class="me-3" [matBadge]="taskStore.getNumberNotifications()"
         [matBadgeHidden]="!taskStore.getNumberNotifications()">notifications</mat-icon>
       <app-avatar [size]="40"> </app-avatar>
     </div>
