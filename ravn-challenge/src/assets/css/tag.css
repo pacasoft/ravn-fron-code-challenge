@@ -1,0 +1,60 @@
+.tagChip {
+  border-radius: 4px;
+  padding: 4px 16px 4px 16px;
+  font-size: var(--font-body-M);
+  width: auto;
+  display: inline-block;
+}
+
+.clickable {
+  cursor: pointer;
+}
+.clickable:hover {
+  cursor: pointer;
+  background-color: var(--color-neutral-4) !important;
+}
+
+.withIcon {
+  display: flex !important;
+  align-items: center;
+}
+
+.IOS {
+  background-color: var(--tag-green-background-color);
+  color: var(--tag-green-color);
+}
+
+.ANDROID,
+.warning-tag {
+  background-color: var(--tag-yellow-background-color) !important;
+  color: var(--tag-yellow-color) !important;
+}
+.ANDROID .mat-icon,
+.warning-tag .mat-icon {
+  color: var(--tag-yellow-color) !important;
+}
+
+.NODE_JS,
+.white-tag {
+  background-color: var(--tag-white-background-color) !important;
+  color: var(--tag-white-color) !important;
+}
+.NODE_JS .mat-icon,
+.white-tag .mat-icon {
+  color: var(--tag-white-color) !important;
+}
+
+.RAILS,
+.danger-tag {
+  background-color: var(--tag-red-background-color) !important;
+  color: var(--tag-red-color) !important;
+}
+.RAILS .mat-icon,
+.danger-tag .mat-icon {
+  color: var(--tag-red-color) !important;
+}
+
+.REACT {
+  background-color: var(--tag-blue-background-color) !important;
+  color: var(--tag-blue-color) !important;
+}

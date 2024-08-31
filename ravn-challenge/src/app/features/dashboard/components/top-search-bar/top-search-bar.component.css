@@ -1,0 +1,12 @@
+.search-bar-container {
+  background-color: var(--color-neutral-4) !important;
+  margin: 12px 24px 12px 24px;
+}
+
+.search-bar-suffix {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}

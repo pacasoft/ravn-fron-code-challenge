@@ -1,0 +1,21 @@
+<span class="column-title">{{title()}} ({{cant().toString().padStart(2,'0')}})</span>
+
+<div class="task-column drag-list mt-3">
+  @if(loading()) {
+  <app-task-card-skeleton></app-task-card-skeleton>
+  }@else {
+  @for(task of taskList(); track task) {
+  <app-task-card [attr.id]="task.id" class="card-drag" cdkDrag (cdkDragStarted)="task.moving = true"
+    (cdkDragEnded)="task.moving = false" [taskData]="task"></app-task-card>
+
+  } @empty {
+  <div class="empty-state">
+    <mat-card class="card my-2" appearance="outlined">
+      <mat-icon class="text-center w-100">sentiment_very_dissatisfied</mat-icon>
+      <span class="text-center">No tasks here</span>
+    </mat-card>
+  </div>
+
+  }
+  }
+</div>

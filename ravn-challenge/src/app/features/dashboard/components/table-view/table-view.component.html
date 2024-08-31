@@ -1,0 +1,55 @@
+<table mat-table [dataSource]="taskList()">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> # Task name </th>
+    <td mat-cell *matCellDef="let element" class="nameCol"> {{element.position.toString().padStart(2,'0')}}
+      {{element.name}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="tags">
+    <th mat-header-cell *matHeaderCellDef> Task tags </th>
+    <td mat-cell *matCellDef="let element" class="tagsCol">
+      @if(element.tags.length > 0) {
+      <app-tag [classType]="element.tags[0]" [tagName]="element.tags[0]"></app-tag>
+      @if(element.tags.length > 1) {
+      <app-tag classType="ms-2 white-tag" [tagName]="'+' + (element.tags.length - 1).toString()"></app-tag>
+      }
+      }
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="pointEstimate">
+    <th mat-header-cell *matHeaderCellDef> Estimate </th>
+    <td mat-cell *matCellDef="let element" class="estimateCol"> {{element.pointEstimate | points}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="user">
+    <th mat-header-cell *matHeaderCellDef> Task Assign name </th>
+    <td mat-cell *matCellDef="let element" class="userCol">
+
+      <div class="d-flex align-items-center">
+        <app-avatar [size]="32" [imgSrc]="element.assignee.avatar"></app-avatar>
+
+        <span class="ms-2">
+          {{ element.assignee.fullName.length > 15 ? element.assignee.fullName.substring(0, 15) + '...' :
+          element.assignee.fullName }}
+        </span>
+      </div>
+
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="dueDateText">
+    <th mat-header-cell *matHeaderCellDef> Due Date </th>
+    <td mat-cell *matCellDef="let element" class="dueCol"> {{element.dueDate | dueDate}} </td>
+  </ng-container>
+
+  <!-- <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr> -->
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+      No se encontro ninguna tarea registrada.
+    </td>
+  </tr>
+</table>

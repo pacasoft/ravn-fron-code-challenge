@@ -1,0 +1,28 @@
+<app-layout>
+  <app-top-search-bar></app-top-search-bar>
+
+  <mat-toolbar class="d-flex my-3">
+    <div class="me-auto">
+      <mat-button-toggle-group [value]="dashStore.taskView()" (change)="onChangeView($event)"
+        hideSingleSelectionIndicator="true" name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle value="LIST">
+          <mat-icon>menu</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle value="GRID">
+          <mat-icon>grid_view</mat-icon>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+
+    </div>
+
+    <button (click)="openEditModal()" mat-mini-fab aria-label="New Task">
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  @if(dashStore.taskView() === 'GRID') {
+  <app-grid-view></app-grid-view>
+  }@else {
+  <app-list-view></app-list-view>
+  }
+</app-layout>

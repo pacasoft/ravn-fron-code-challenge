@@ -1,0 +1,161 @@
+:root {
+  --color-neutral-1: #ffffff;
+  --color-neutral-2: #94979a;
+  --color-neutral-3: #393d41;
+  --color-neutral-4: #2c2f33;
+  --color-neutral-5: #222528;
+
+  --color-primary-1: #f4ccc8;
+  --color-primary-2: #eba59e;
+  --color-primary-3: #e27d73;
+  --color-primary-4: #da584b;
+
+  --color-secondary-1: #c8e1bc;
+  --color-secondary-2: #aad199;
+  --color-secondary-3: #8dc275;
+  --color-secondary-4: #70b252;
+
+  --color-tertiary-1: #f9eed7;
+  --color-tertiary-2: #f2daab;
+  --color-tertiary-3: #ebc77f;
+  --color-tertiary-4: #e5b454;
+
+  /* VARIABLES TO CHANGE THEME */
+  --mat-toolbar-container-background-color: whitesmoke;
+  --mat-toolbar-container-text-color: var(--color-neutral-1);
+
+  --mat-stepper-header-icon-foreground-color: white;
+  --mat-stepper-header-selected-state-icon-background-color: var(
+    --color-neutral-4
+  );
+  --mat-stepper-header-selected-state-icon-foreground-color: white;
+  --mat-stepper-header-done-state-icon-background-color: var(--color-neutral-4);
+  --mat-stepper-header-done-state-icon-foreground-color: white;
+  --mat-stepper-header-edit-state-icon-background-color: var(--color-neutral-4);
+  --mat-stepper-header-edit-state-icon-foreground-color: white;
+  --mat-stepper-container-color: white;
+  --mat-stepper-line-color: rgba(0, 0, 0, 0.12);
+  --mat-stepper-header-hover-state-layer-color: rgba(0, 0, 0, 0.04);
+  --mat-stepper-header-focus-state-layer-color: rgba(0, 0, 0, 0.04);
+  --mat-stepper-header-label-text-color: rgba(0, 0, 0, 0.54);
+  --mat-stepper-header-optional-label-text-color: rgba(0, 0, 0, 0.54);
+  --mat-stepper-header-selected-state-label-text-color: var(--color-neutral-1);
+  --mat-stepper-header-error-state-label-text-color: #f44336;
+  --mat-stepper-header-icon-background-color: rgba(0, 0, 0, 0.54);
+  --mat-stepper-header-error-state-icon-foreground-color: #f44336;
+  --mat-stepper-header-error-state-icon-background-color: transparent;
+
+  --mat-sidenav-container-divider-color: rgba(0, 0, 0, 0.12);
+  --mat-sidenav-container-background-color: var(--color-neutral-5);
+  --mat-sidenav-container-text-color: var(--color-neutral-1);
+  --mat-sidenav-content-background-color: #var(--color-neutral-5);
+  --mat-sidenav-content-text-color: var(--color-neutral-1);
+  --mat-sidenav-scrim-color: rgba(0, 0, 0, 0.6);
+
+  --mdc-list-list-item-label-text-color: var(--color-neutral-1);
+  --mat-toolbar-container-background-color: var(--color-neutral-5);
+  --mat-toolbar-container-text-color: var(--color-neutral-1);
+
+  --mdc-text-button-label-text-color: var(--color-primary-4);
+  --mdc-outlined-button-label-text-color: var(--color-primary-4);
+  --mat-expansion-header-hover-state-layer-color: var(--color-neutral-4);
+  --mat-expansion-container-text-color: var(--color-neutral-1);
+  --mat-expansion-container-background-color: var(--color-neutral-4);
+  --mat-menu-container-color: var(--color-neutral-3);
+  --mat-menu-item-label-text-color: var(--color-neutral-1);
+  --mdc-dialog-container-color: var(--color-neutral-3);
+  --mdc-dialog-subhead-color: var(--color-neutral-2);
+  --mdc-dialog-supporting-text-color: var(--color-neutral-1);
+  --mat-menu-item-hover-state-layer-color: var(--color-neutral-4);
+
+  --mat-full-pseudo-checkbox-selected-icon-color: var(--color-neutral-1);
+  --mat-full-pseudo-checkbox-selected-checkmark-color: #fafafa;
+  --mat-full-pseudo-checkbox-unselected-icon-color: rgba(0, 0, 0, 0.54);
+  --mat-full-pseudo-checkbox-disabled-selected-checkmark-color: #fafafa;
+  --mat-full-pseudo-checkbox-disabled-unselected-icon-color: #b0b0b0;
+  --mat-full-pseudo-checkbox-disabled-selected-icon-color: #b0b0b0;
+  --mat-minimal-pseudo-checkbox-selected-checkmark-color: var(
+    --color-neutral-1
+  );
+  --mat-minimal-pseudo-checkbox-disabled-selected-checkmark-color: #b0b0b0;
+
+  --mat-datepicker-calendar-container-text-color: var(--color-neutral-1);
+  --mat-datepicker-calendar-container-background-color: var(--color-neutral-5);
+  --mdc-text-button-label-text-color: var(--color-neutral-1);
+  --mat-datepicker-calendar-period-button-text-color: var(--color-neutral-1);
+  --mat-datepicker-calendar-header-text-color: var(--color-neutral-1);
+  --mat-datepicker-calendar-date-text-color: var(--color-neutral-1);
+  --mat-datepicker-calendar-body-label-text-color: var(--color-neutral-1);
+  --mat-datepicker-calendar-period-button-icon-color: var(--color-neutral-1);
+  --mat-datepicker-calendar-navigation-button-icon-color: var(
+    --color-neutral-1
+  );
+
+  --mdc-form-field-label-text-color: var(--color-neutral-1);
+  --mdc-form-field-label-text-color: var(--color-neutral-1);
+  --mdc-circular-progress-active-indicator-color: var(--color-primary-4);
+
+  --font-body-XL: 20px;
+  --font-body-L: 18px;
+  --font-body-M: 15px;
+  --font-body-S: 13px;
+
+  --font-heading-XL: 64px;
+  --font-heading-L: 56px;
+  --font-heading-M: 48px;
+  --font-heading-S: 32px;
+  --font-heading-XS: 24px;
+
+  --tag-white-color: var(--color-neutral-1);
+  --tag-green-color: var(--color-secondary-4);
+  --tag-blue-color: #2f61bf;
+  --tag-yellow-color: var(--color-tertiary-4);
+  --tag-red-color: var(--color-primary-4);
+
+  --tag-white-background-color: #94979a1a;
+  --tag-green-background-color: #70b2521a;
+  --tag-blue-background-color: #2f61bf1a;
+  --tag-yellow-background-color: #e5b4541a;
+  --tag-red-background-color: #da584b1a;
+}
+
+.font-heading-XL {
+  font-size: var(--font-heading-XL);
+  line-height: 88px;
+}
+.font-heading-L {
+  font-size: var(--font-heading-L);
+  line-height: 72px;
+}
+.font-heading-M {
+  font-size: var(--font-heading-M);
+  line-height: 56px;
+}
+.font-heading-S {
+  font-size: var(--font-heading-S);
+  line-height: 48px;
+}
+.font-heading-XS {
+  font-size: var(--font-heading-XS);
+  line-height: 32px;
+}
+
+.font-body-XL {
+  font-size: 20px;
+}
+.font-body-L {
+  font-size: 18px;
+}
+
+.font-body-M {
+  font-size: 15px;
+}
+
+.font-body-S {
+  font-size: 13px;
+}
+
+p {
+  font-size: var(--font-body-M);
+  line-height: 24px;
+}

@@ -1,0 +1,59 @@
+<app-layout>
+
+  <mat-card class="card  my-2" appearance="outlined">
+    <p class="font-heading-S">Profile data</p>
+    <mat-card-header class="p-0">
+      <div class="d-flex align-items-center">
+        @if(appState.loading()){
+        <ngx-skeleton-loader animation="pulse" count="1" appearance="circle" />
+        <ngx-skeleton-loader [theme]="{width:'50px'}" animation="pulse" count="1" appearance="line" />
+        }@else {
+        <app-avatar class="me-2" [size]="32" [imgSrc]="appState.profile().avatar"></app-avatar>
+        <span class="font-body-L">{{appState.profile().fullName}}</span>
+
+        }
+      </div>
+
+    </mat-card-header>
+    <mat-card-content class="my-4 p-0">
+      @if(appState.loading()){
+      <div class="d-flex flex-column" style="width: 100px;">
+        <ngx-skeleton-loader [theme]="{width:'100px'}" animation="pulse" count="4" appearance="line" />
+      </div>
+
+      <!-- <ngx-skeleton-loader class="w-50" animation="pulse" count="1" appearance="line" /> -->
+      } @else {
+      <p> <b>Email:</b> {{ appState.profile().email }} </p>
+      <p> <b>Type:</b> {{ appState.profile().type }} </p>
+      <p> <b>Created at:</b> {{ appState.profile().createdAt | date }} </p>
+      <p> <b>Updated at:</b> {{ appState.profile().updatedAt | date }} </p>
+      <!-- <span>{{appState.profile().pointEstimate | points}}</span> -->
+
+      }
+
+      <!-- TAREAS PENDIENTES -->
+      @if(appState.loading()){
+      <ngx-skeleton-loader [theme]="{width:'50px', 'margin-right':'8px'}" animation="pulse" count="3"
+        appearance="line" />
+      }@else {
+      <p class="font-heading-XS mb-2 mt-3">Tasks ({{appState.getProfileTasks().length.toString().padStart(2,'0')}})
+      </p>
+      @if(appState.loading()){
+      <ngx-skeleton-loader [theme]="{width:'50px', 'margin-right':'8px'}" animation="pulse" count="3"
+        appearance="line" />
+      } @else {
+      <div class="d-flex gap-3 flex-wrap align-items-center mb-4">
+        @for(task of appState.getProfileTasks();track task){
+        <app-tag class="mx-1" tagIcon="alarm" [classType]="statusDueDate(task)" [tagName]="task.name"></app-tag>
+        }
+      </div>
+      }
+
+      }
+
+
+    </mat-card-content>
+
+  </mat-card>
+
+</app-layout>

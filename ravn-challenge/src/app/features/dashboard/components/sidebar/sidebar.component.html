@@ -1,0 +1,27 @@
+<div class="sidebar-container">
+  <div class="text-center">
+    <img src="assets/images/ravn_logo.png" class="img-fluid" width="40" height="40" alt="Logo RAVN">
+  </div>
+
+  <mat-list class="mt-3">
+    <mat-list-item [routerLink]="'/user/dashboard'" role="listitem">
+      <span class="entry" [class.active]="appState.route()=='Dashboard'">
+        <mat-icon>grid_view</mat-icon>
+        <span>DASHBOARD</span>
+      </span>
+    </mat-list-item>
+    <!-- <mat-list-item [routerLink]="'/user/settings'" role="listitem">
+      <span class="entry">
+        <mat-icon>menu</mat-icon>
+        <span>MY TASK</span>
+      </span>
+    </mat-list-item> -->
+    <mat-list-item [routerLink]="'/user/settings'" role="listitem">
+      <span class="entry" [class.active]="appState.route()=='Settings'">
+        <mat-icon>settings</mat-icon>
+        <span>SETTINGS</span>
+      </span>
+    </mat-list-item>
+
+  </mat-list>
+</div>

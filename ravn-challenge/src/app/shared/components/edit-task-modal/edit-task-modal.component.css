@@ -1,0 +1,9 @@
+.taskNameInput {
+  background-color: var(--color-neutral-3);
+  border: none;
+  color: var(--color-neutral-2);
+  font-size: var(--font-body-XL);
+}
+.taskNameInput:focus-visible {
+  outline: none;
+}

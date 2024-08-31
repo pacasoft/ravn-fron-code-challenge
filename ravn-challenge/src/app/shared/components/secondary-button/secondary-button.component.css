@@ -1,0 +1,15 @@
+.secondary-button {
+  border-radius: 8px;
+  padding: 8px;
+  background-color: var(--color-neutral-3);
+  color: var(--color-neutral-1);
+  border: none;
+}
+
+.secondary-button:hover {
+    background-color: var(--color-neutral-4);
+}
+
+.primary-color {
+  color: var(--color-primary-4);
+}

@@ -1,0 +1,90 @@
+<table class="mb-3" mat-table [dataSource]="taskStore.tasks()">
+  <ng-container matColumnDef="name">
+    <th class="nameCol" mat-header-cell *matHeaderCellDef> # Task name </th>
+  </ng-container>
+
+  <ng-container matColumnDef="tags">
+    <th class="tagsCol" mat-header-cell *matHeaderCellDef> Task tags </th>
+  </ng-container>
+
+  <ng-container matColumnDef="pointEstimate">
+    <th class="estimateCol" mat-header-cell *matHeaderCellDef> Estimate </th>
+  </ng-container>
+
+  <ng-container matColumnDef="user">
+    <th class="userCol" mat-header-cell *matHeaderCellDef> Task Assign name </th>
+  </ng-container>
+
+  <ng-container matColumnDef="dueDateText">
+    <th class="dueCol" mat-header-cell *matHeaderCellDef> Due Date </th>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+</table>
+
+<mat-accordion multi>
+  <mat-expansion-panel (opened)="expBACKLOG.set(true)" (closed)="expBACKLOG.set(false)" expanded="true" hideToggle>
+    <mat-expansion-panel-header>
+      <span class="font-body-L d-flex align-items-center"><mat-icon
+          [ngClass]="{'rotate180deg': expBACKLOG(), 'rotate0deg': !expBACKLOG()}">keyboard_arrow_down</mat-icon> Backlog
+        ({{taskStore.getNumberTasksBacklog()}}) </span>
+    </mat-expansion-panel-header>
+
+    <ng-template matExpansionPanelContent>
+      <app-table-view [taskList]="taskStore.getTasksBacklog()"></app-table-view>
+    </ng-template>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel (opened)="expTODO.set(true)" (closed)="expTODO.set(false)" expanded="true" hideToggle>
+    <mat-expansion-panel-header>
+      <span class="font-body-L d-flex align-items-center"><mat-icon
+          [ngClass]="{'rotate180deg': expTODO(), 'rotate0deg': !expTODO()}">keyboard_arrow_down</mat-icon> To Do
+        ({{taskStore.getNumberTasksToDo()}}) </span>
+    </mat-expansion-panel-header>
+
+    <ng-template matExpansionPanelContent>
+      <app-table-view [taskList]="taskStore.getTasksToDo()"></app-table-view>
+    </ng-template>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel (opened)="expPROGRESS.set(true)" (closed)="expPROGRESS.set(false)" expanded="true" hideToggle>
+    <mat-expansion-panel-header>
+      <span class="font-body-L d-flex align-items-center">
+        <mat-icon
+          [ngClass]="{'rotate180deg': expPROGRESS(), 'rotate0deg': !expPROGRESS()}">keyboard_arrow_down</mat-icon>
+        In Progress
+        ({{taskStore.getNumberTasksInProgress()}})</span>
+    </mat-expansion-panel-header>
+    <ng-template matExpansionPanelContent>
+      <app-table-view [taskList]="taskStore.getTasksInProgress()"></app-table-view>
+    </ng-template>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel (opened)="expDONE.set(true)" (closed)="expDONE.set(false)" expanded="true" hideToggle>
+    <mat-expansion-panel-header>
+      <span class="font-body-L d-flex align-items-center"><mat-icon
+          [ngClass]="{'rotate180deg': expDONE(), 'rotate0deg': !expDONE()}">keyboard_arrow_down</mat-icon> Completed
+        ({{taskStore.getNumberTasksCompleted()}})</span>
+    </mat-expansion-panel-header>
+    <ng-template matExpansionPanelContent>
+      <app-table-view [taskList]="taskStore.getTasksCompleted()"></app-table-view>
+    </ng-template>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel (opened)="expCANCELLED.set(true)" (closed)="expCANCELLED.set(false)" expanded="true" hideToggle>
+    <mat-expansion-panel-header>
+      <span class="font-body-L d-flex align-items-center"><mat-icon
+          [ngClass]="{'rotate180deg': expCANCELLED(), 'rotate0deg': !expCANCELLED()}">keyboard_arrow_down</mat-icon>
+        Cancelled
+        ({{taskStore.getNumberTasksCancelled()}}) </span>
+    </mat-expansion-panel-header>
+
+    <ng-template matExpansionPanelContent>
+      <app-table-view [taskList]="taskStore.getTasksCancelled()"></app-table-view>
+    </ng-template>
+  </mat-expansion-panel>
+
+
+</mat-accordion>

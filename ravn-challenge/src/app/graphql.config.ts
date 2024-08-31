@@ -1,0 +1,4 @@
+export const apolloURL = 'https://syn-api-prod.herokuapp.com/graphql';
+
+
+export const apolloToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwb3NpdGlvbklkIjoiMDMxMTE5MDQtZDIyMC00OGI5LTk0MjEtMzVkOGM5Y2UwMzNiIiwicHJvamVjdElkIjoiNzg4NzlkMTctMmEzZS00MDg0LThkNzUtZTIxZTJjYzg5YTJlIiwiZnVsbE5hbWUiOiJJc3JhZWwgU2FudGlhZ28gTG9wZXogQ3J1eiIsImVtYWlsIjoiaWxvcGV6QHBhY2Fzb2Z0LmNsb3VkIiwiaWF0IjoxNzI0ODYyNzgyfQ.GhSgtk8RMU7Ys-21htj4cT2l5iMt9qSjHHelwz8T_jM';

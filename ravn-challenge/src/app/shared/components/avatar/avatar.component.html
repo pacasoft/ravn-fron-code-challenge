@@ -1,0 +1,9 @@
+<div class="avatar" mat-mini-fab aria-label="Avatar">
+  <div class="avatar__image">
+    @if(imgSrc()){
+    <img [width]="size()" [height]="size()" [src]="imgSrc()" alt="avatar" />
+    }@else {
+    <img [width]="size()" [height]="size()" [src]="fallbackSrc" alt="avatar" />
+    }
+  </div>
+</div>

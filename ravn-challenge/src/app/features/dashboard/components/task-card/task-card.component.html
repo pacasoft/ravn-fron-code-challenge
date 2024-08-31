@@ -1,0 +1,76 @@
+<mat-card class="card my-2" appearance="outlined">
+  <mat-card-header class="d-flex align-items-center p-0">
+    <span class="font-body-L me-auto">
+      @if(taskData().moving){
+      <ngx-skeleton-loader [theme]="{width:'150px', 'margin-right':'8px'}" animation="pulse" count="1"
+        appearance="line" />
+      } @else {
+      {{taskData().name}}
+      }
+    </span>
+
+    <mat-icon [matMenuTriggerFor]="menu">more_horiz</mat-icon>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="openEditModal()">
+        <mat-icon>edit</mat-icon>
+        <span>Edit</span>
+      </button>
+      <button mat-menu-item (click)="deleteTask()">
+        <mat-icon>delete</mat-icon>
+        <span>Delete</span>
+      </button>
+    </mat-menu>
+
+  </mat-card-header>
+  <mat-card-content class="my-4 p-0">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      @if(taskData().moving){
+      <ngx-skeleton-loader class="w-25 me-2" animation="pulse" count="1" appearance="line" />
+
+      <ngx-skeleton-loader class="w-50" animation="pulse" count="1" appearance="line" />
+      } @else {
+      <span>{{taskData().pointEstimate | points}}</span>
+
+      <app-tag tagIcon="alarm" [classType]="statusDueDate()" [tagName]="taskData().dueDate | dueDate"></app-tag>
+      }
+    </div>
+
+    @if(taskData().moving){
+    <ngx-skeleton-loader [theme]="{width:'50px', 'margin-right':'8px'}" animation="pulse" count="3" appearance="line" />
+    }@else {
+    @if(taskData().tags.length > 0) {
+    <app-tag class="mx-1" [classType]="taskData().tags[0]" [tagName]="taskData().tags[0]"></app-tag>
+    @if(taskData().tags.length > 1) {
+    <app-tag class="mx-1" [classType]="taskData().tags[1]" [tagName]="taskData().tags[1]"></app-tag>
+    }
+    @if(taskData().tags.length > 2) {
+    <app-tag classType="ms-2 white-tag" [tagName]="'+' + (taskData().tags.length - 1).toString()"></app-tag>
+    }
+    }
+    }
+
+
+    <div class="d-flex justify-content-between mt-3">
+      <div class="d-flex align-items-center">
+        @if(taskData().moving){
+        <ngx-skeleton-loader animation="pulse" count="1" appearance="circle" />
+        <ngx-skeleton-loader [theme]="{width:'50px'}" animation="pulse" count="1" appearance="line" />
+        }@else {
+        <app-avatar class="me-2" [size]="32" [imgSrc]="taskData().assignee.avatar"></app-avatar>
+
+        <span> {{taskData().assignee.fullName}} </span>
+        }
+
+      </div>
+
+      <div class="d-flex gap-1 reactions">
+        <mat-icon>attach_file</mat-icon>
+        <mat-icon>account_tree</mat-icon>
+        <mat-icon>chat_bubble</mat-icon>
+      </div>
+
+    </div>
+  </mat-card-content>
+
+</mat-card>

@@ -1,0 +1,150 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "./assets/css/color_fonts.css";
+@import "./assets/css/utils.css";
+@import "./assets/css/tag.css";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  caret-color: var(--color-neutral-2);
+  margin: 0;
+  background-color: var(--color-neutral-5);
+  color: var(--color-neutral-1);
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* 
+
+.mat-mdc-form-field-focus-overlay {
+  background-color: transparent;
+}
+
+.mdc-text-field--outlined {
+  background-color: var(--color-neutral-4) !important;
+  border-radius: 16px;
+  color: var(--color-neutral-1) !important;
+} */
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  caret-color: var(--color-neutral-2) !important;
+  color: var(--color-neutral-1) !important;
+  background-color: var(--color-neutral-5) !important;
+}
+
+.mat-mdc-form-field-flex,
+.mat-mdc-form-field-flex * {
+  caret-color: var(--color-neutral-2) !important;
+  color: var(--color-neutral-1) !important;
+  background-color: var(--color-neutral-4) !important;
+  border-radius: 16px;
+}
+
+.mat-icon {
+  color: var(--color-neutral-2) !important;
+}
+
+.mdc-fab {
+  background-color: var(--color-primary-4) !important;
+  border-radius: 8px !important;
+}
+
+button .mat-icon {
+  color: var(--color-neutral-1) !important;
+}
+
+::placeholder {
+  color: var(--color-neutral-2) !important;
+}
+
+.mat-mdc-menu-panel {
+  border: 1px solid var(--color-neutral-2);
+}
+
+.menu-title {
+  color: var(--color-neutral-2);
+  font-size: var(--font-body-XL);
+  padding-left: 16px;
+  margin-bottom: 4px !important;
+}
+
+.mat-calendar-body-today {
+  border-color: var(--color-primary-4) !important;
+  border-radius: 2px !important;
+  background-color: var(--color-neutral-5) !important;
+}
+
+.mat-calendar-body-cell:hover .mat-calendar-body-cell-content,
+.mat-calendar-body-selected {
+  background-color: var(--color-primary-4) !important;
+  border-radius: 2px !important;
+}
+
+.mat-datepicker-actions {
+  border-top: 1px solid var(--color-primary-4);
+}
+
+.mat-mdc-checkbox .mdc-label {
+  color: var(--color-neutral-1) !important;
+}
+
+.mdc-checkbox__background {
+  border-color: var(--color-neutral-1) !important;
+}
+
+.mdc-checkbox--selected .mdc-checkbox__background {
+  border-color: var(--color-primary-4) !important;
+  background-color: var(--color-primary-4) !important;
+  color: var(--color-neutral-1) !important;
+}
+
+.mdc-checkbox
+  .mdc-checkbox__native-control:enabled:checked
+  ~ .mdc-checkbox__background,
+.mdc-checkbox
+  .mdc-checkbox__native-control:enabled:indeterminate
+  ~ .mdc-checkbox__background,
+.mdc-checkbox
+  .mdc-checkbox__native-control[data-indeterminate="true"]:enabled
+  ~ .mdc-checkbox__background {
+  border-color: var(--color-primary-4) !important;
+  background-color: var(--color-primary-4) !important;
+  color: var(--color-neutral-1) !important;
+}
+
+.skeleton-loader {
+  background-color: var(--color-neutral-4);
+}
+
+.card {
+  background-color: var(--color-neutral-4) !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
+}
+
+/*  loading spinner */
+.loading-spinner {
+  position: relative;
+}
+
+.loading-spinner {
+  /* width: 100%; */
+  min-height: 100px;
+}
+
+.loading-spinner::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E.spinner_aj0A%7Btransform-origin:center;animation:spinner_KYSC .75s infinite linear%7D@keyframes spinner_KYSC%7B100%25%7Btransform:rotate(360deg)%7D%7D%3C/style%3E%3Cpath d='M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z' class='spinner_aj0A'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  content: "";
+}

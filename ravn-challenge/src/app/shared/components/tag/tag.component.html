@@ -1,0 +1,7 @@
+<div [class.withIcon]="tagIcon()" class="tagChip" [class]="classType()">
+  @if(tagIcon()){
+  <mat-icon class="me-2">{{tagIcon()}}</mat-icon>
+  }
+
+  <span>{{tagName()}}</span>
+</div>

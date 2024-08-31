@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>
+  Delete task
+</h2>
+<mat-dialog-content>
+  Are you sure you want to delete the task?
+</mat-dialog-content>
+<mat-dialog-actions class="d-flex justify-content-end">
+  <app-secondary-button (click)="handleCancel()" class="me-2" text="Cancel"></app-secondary-button>
+  <app-main-button (click)="handleDeleteTask()" text="Confirm"></app-main-button>
+</mat-dialog-actions>
