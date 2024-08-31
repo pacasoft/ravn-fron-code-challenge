@@ -3,32 +3,36 @@
     <!-- BACKLOG  -->
     <div class="task-column">
       <app-task-column [attr.status]="'BACKLOG'" [cdkDropListData]="taskStore.getTasksBacklog()" cdkDropList
-        (cdkDropListDropped)="drop($event)" [loading]="taskStore.loading()" title="Backlog"
-        [cant]="taskStore.getNumberTasksBacklog()" [taskList]="taskStore.getTasksBacklog()"></app-task-column>
+        cdkDropListAutoScrollStep="8" (cdkDropListDropped)="drop($event)" [loading]="taskStore.loading()"
+        title="Backlog" [cant]="taskStore.getNumberTasksBacklog()"
+        [taskList]="taskStore.getTasksBacklog()"></app-task-column>
     </div>
     <!-- TODO  -->
     <div class="task-column">
       <app-task-column [attr.status]="'TODO'" [cdkDropListData]="taskStore.getTasksToDo()" cdkDropList
-        (cdkDropListDropped)="drop($event)" [loading]="taskStore.loading()" title="To Do"
+        cdkDropListAutoScrollStep="8" (cdkDropListDropped)="drop($event)" [loading]="taskStore.loading()" title="To Do"
         [cant]="taskStore.getNumberTasksToDo()" [taskList]="taskStore.getTasksToDo()"></app-task-column>
     </div>
     <!-- IN PROGRESS  -->
     <div class="task-column">
       <app-task-column [attr.status]="'IN_PROGRESS'" [cdkDropListData]="taskStore.getTasksInProgress()" cdkDropList
-        (cdkDropListDropped)="drop($event)" [loading]="taskStore.loading()" title="In Progress"
-        [cant]="taskStore.getNumberTasksInProgress()" [taskList]="taskStore.getTasksInProgress()"></app-task-column>
+        cdkDropListAutoScrollStep="8" (cdkDropListDropped)="drop($event)" [loading]="taskStore.loading()"
+        title="In Progress" [cant]="taskStore.getNumberTasksInProgress()"
+        [taskList]="taskStore.getTasksInProgress()"></app-task-column>
     </div>
     <!-- COMPLETED  -->
     <div class="task-column">
       <app-task-column [attr.status]="'DONE'" [cdkDropListData]="taskStore.getTasksCompleted()" cdkDropList
-        (cdkDropListDropped)="drop($event)" [loading]="taskStore.loading()" title="Completed"
-        [cant]="taskStore.getNumberTasksCompleted()" [taskList]="taskStore.getTasksCompleted()"></app-task-column>
+        cdkDropListAutoScrollStep="8" (cdkDropListDropped)="drop($event)" [loading]="taskStore.loading()"
+        title="Completed" [cant]="taskStore.getNumberTasksCompleted()"
+        [taskList]="taskStore.getTasksCompleted()"></app-task-column>
     </div>
     <!-- CANCELLED  -->
     <div class="task-column">
       <app-task-column [attr.status]="'CANCELLED'" [cdkDropListData]="taskStore.getTasksCancelled()" cdkDropList
-        (cdkDropListDropped)="drop($event)" [loading]="taskStore.loading()" title="Cancelled"
-        [cant]="taskStore.getNumberTasksCancelled()" [taskList]="taskStore.getTasksCancelled()"></app-task-column>
+        cdkDropListAutoScrollStep="8" (cdkDropListDropped)="drop($event)" [loading]="taskStore.loading()"
+        title="Cancelled" [cant]="taskStore.getNumberTasksCancelled()"
+        [taskList]="taskStore.getTasksCancelled()"></app-task-column>
     </div>
   </div>
 </div>

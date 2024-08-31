@@ -8,6 +8,8 @@
 - [Additional Info](#additional-info)
 - [Demo](#demo)
 
+Content of tables in broken because of emojis :triangular_flag_on_post:
+
 # :rocket: Setup/Running instructions
 
 First, you need to clone the repository like this:
@@ -59,22 +61,32 @@ The app allows users to login, browse, create, update, and delete tasks.
 
 ## Dashboard grid
 
-Here is a screenshot of the task grid view
+Here is a screenshot of the task grid view.
+
 ![Dashboard grid](screenshots/dashboard_grid.png)
 
-Here is a screenshot of the task list view
+Here is a screenshot of the task list view.
+
 ![Dashboard list](screenshots/dashboard_list.png)
 
-Here is a screenshot of the grid view in a mobile device
+Here is a screenshot of the grid view in a mobile device.
+
 ![Dashboard grid in mobile](screenshots/dashboard_mobile.png)
 
-The app also shows a settings page showing the profile information
+The app also shows a settings page showing the profile information.
+
 ![Settings page](screenshots/settings.png)
 
 # :mag: Decisitions
 
+- The stack used was Angular with Apollo client for the connection with the GraphQL database.
+
+- The structure of the project was based on 3 folders: **Core** (Contains the layout and important services), **Features** (Contains the pages and its components used inside) and **Shared** (Contains the components used in different pages).
+
 - I decided to use Signal store instead of NGRX store to simplify working with signals and share data betweens components and set a global state for the reutilization of the app data (Tasks, users, filters, profile).
+
 - Angular material was added to simplify the design of the components shared accross the application.
+
 - The width of the card was reduced in mobile to allow the drag and drop funcionality
 
 # :bricks: Technologies/Libraries
