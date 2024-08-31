@@ -17,6 +17,10 @@ export class DueDatePipe implements PipeTransform {
         month: 'long',
         year: 'numeric'
       });
+      const [month, day, year] = dueDateText.split(' ');
+
+      dueDateText = `${day.substring(0, day.length - 1)} ${month.toUpperCase()}, ${year}`;
+
     } else {
       if (date.getDate() === currentDate.getDate()) {
         dueDateText = 'TODAY';

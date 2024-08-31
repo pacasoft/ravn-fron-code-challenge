@@ -5,7 +5,7 @@ import { debounceTime, forkJoin, map, pipe, switchMap, tap } from "rxjs";
 import { tapResponse } from '@ngrx/operators';
 import { initialTaskList, PointEstimate, Status, Tag, Task, TaskList } from "../models/tasks.model";
 import { TaskService } from "../../../features/dashboard/services/task.service";
-import { CREATE_TASK, DELETE_TASK, GET_BACKLOG_TASKS, GET_CANCELLED_TASKS, GET_DONE_TASKS, GET_IN_PROGRESS_TASKS, GET_TASK, GET_TODO_TASKS, TASK_FRAGMENT, UPDATE_TASK } from "../queries/tasks-queries";
+import { CREATE_TASK, DELETE_TASK, GET_TASK, UPDATE_TASK } from "../queries/tasks-queries";
 import { Apollo, gql } from "apollo-angular";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { User } from "../models/usuario.models";
@@ -69,7 +69,7 @@ export const TaskListStore = signalStore(
             if (state.filters.status())
                 task.status = state.filters.status();
 
-            if (state.filters.tags())
+            if (state.filters.tags().length)
                 task.tags = state.filters.tags();
 
             if (state.filters.pointEstimate())
@@ -158,10 +158,16 @@ export const TaskListStore = signalStore(
             return state.tasks().find(task => task.id === id);
         },
 
+        clearFilters() {
+            let filters = initialTaskList.filters;
+            filters.tags = [];
+            patchState(state, { filters: filters });
+        },
+
         setNameFilter(name: string) {
             let filters: any = { ...state.filters() };
             filters.name = name;
-            patchState(state, { filters });
+            patchState(state, { filters: filters });
         },
 
         setStatusFilter(status: Status) {
@@ -198,6 +204,7 @@ export const TaskListStore = signalStore(
 
         setTagsFilter(tag: { name: Tag, checked: boolean }) {
             let currentList = state.filters.tags();
+
             if (currentList.includes(tag.name)) {
                 currentList = currentList.filter((_tag) => _tag !== tag.name);
             } else {
@@ -205,6 +212,7 @@ export const TaskListStore = signalStore(
             }
 
             let filters: any = { ...state.filters() };
+
             filters.tags = currentList;
 
             patchState(state, { filters: filters });

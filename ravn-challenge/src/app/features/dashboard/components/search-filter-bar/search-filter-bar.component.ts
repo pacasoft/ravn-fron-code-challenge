@@ -46,6 +46,10 @@ export class SearchFilterBarComponent {
   usersStore = inject(UserStore);
   appState = inject(AppState);
 
+  clearFilters() {
+    this.taskStore.clearFilters();
+    this.taskStore.loadAllTasks();
+  }
 
   onNameChange() {
     this.taskStore.setNameFilter(this.searchText.value ?? "");

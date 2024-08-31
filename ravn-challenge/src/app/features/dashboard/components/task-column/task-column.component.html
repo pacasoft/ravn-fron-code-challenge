@@ -5,8 +5,7 @@
   <app-task-card-skeleton></app-task-card-skeleton>
   }@else {
   @for(task of taskList(); track task) {
-  <app-task-card [attr.id]="task.id" class="card-drag" cdkDrag cdkDragHandle (cdkDragStarted)="task.moving = true"
-    (cdkDragEnded)="task.moving = false" [taskData]="task"></app-task-card>
+  <app-task-card [attr.id]="task.id" class="card-drag" cdkDrag cdkDragHandle [taskData]="task"></app-task-card>
 
   } @empty {
   <div class="empty-state">

@@ -75,6 +75,7 @@ The app also shows a settings page showing the profile information
 
 - I decided to use Signal store instead of NGRX store to simplify working with signals and share data betweens components and set a global state for the reutilization of the app data (Tasks, users, filters, profile).
 - Angular material was added to simplify the design of the components shared accross the application.
+- The width of the card was reduced in mobile to allow the drag and drop funcionality
 
 # :bricks: Technologies/Libraries
 

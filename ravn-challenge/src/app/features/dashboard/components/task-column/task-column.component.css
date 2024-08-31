@@ -10,6 +10,12 @@
   min-width: 348px;
 }
 
+@media screen and (max-width: 768px) {
+  .task-column {
+    min-width: 268px;
+  }
+}
+
 .drag-list {
   /* width: 500px; */
   /* max-width: 100%; */
@@ -31,7 +37,6 @@
 .cdk-drag-animating {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
-
 
 .drag-list.cdk-drop-list-dragging .card-drag:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);

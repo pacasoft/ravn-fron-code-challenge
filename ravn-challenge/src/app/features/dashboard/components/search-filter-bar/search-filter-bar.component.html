@@ -1,10 +1,25 @@
-<div class="d-flex w-100 flex-wrap px-4" [ngClass]="{'flex-column gap-3':appState.smallScreen()}">
+<div class="d-flex gap-2 w-100 flex-wrap px-2" [ngClass]="{'flex-column gap-3':appState.smallScreen()}">
+  @if(appState.smallScreen()) {
+  <div class="mx-1 flex-fill">
+    <mat-form-field subscriptSizing="dynamic" class="w-100 search-bar">
+      <mat-icon matPrefix>search</mat-icon>
+      <input (change)="onNameChange()" (keyup)="onNameChange()" matInput placeholder="Search"
+        [formControl]="searchText">
+
+      <div class="search-bar-suffix" matSuffix>
+        @if(searchText.value) {
+        <mat-icon (click)="clearNameFilter()" class="me-2">cancel</mat-icon>
+        }
+      </div>
+    </mat-form-field>
+  </div>
+  }
   <!-- STATUS -->
   <div class="mx-1 estimatePicker flex-fill">
     @if(taskStore.filters.status()){
     <app-tag tagIcon="task" [tagName]="taskStore.filters.status()!" classType="white-tag clickable"
       [matMenuTriggerFor]="statusMenu"></app-tag>
-    }@else {
+    } @else {
     <app-tag tagIcon="task" tagName="STATUS" classType="white-tag clickable" [matMenuTriggerFor]="statusMenu"></app-tag>
     }
 
@@ -188,6 +203,11 @@
       }
 
     </mat-menu>
+  </div>
+
+  <div class="mx-1">
+    <app-tag (click)="clearFilters()" tagName="Clear filters" classType="clickable white-tag"
+      tagIcon="filter_alt_off"></app-tag>
   </div>
 
 

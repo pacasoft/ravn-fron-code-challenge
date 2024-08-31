@@ -4,6 +4,7 @@ import { TaskListStore } from '../../../../core/store/idk/task.store';
 import { CdkDropListGroup } from '@angular/cdk/drag-drop';
 import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Status, Task } from '../../../../core/store/models/tasks.model';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'app-grid-view',
@@ -12,6 +13,7 @@ import { Status, Task } from '../../../../core/store/models/tasks.model';
     TaskColumnComponent,
     CdkDropListGroup,
     CdkDropList,
+    ScrollingModule,
   ],
   templateUrl: './grid-view.component.html',
   styleUrl: './grid-view.component.css'

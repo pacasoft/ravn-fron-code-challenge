@@ -37,7 +37,7 @@ export class LayoutComponent implements OnInit {
 
 
     this.sideNavService.sideNavToggleSubject.subscribe(() => {
-      this.sidebar.toggle();
+      this.sidebar?.toggle();
     });
 
     this.responsive.observe([
