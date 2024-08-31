@@ -108,8 +108,5 @@ Optimistic mutations have been used for updating, creating and deleting tasks in
 
 # Demo
 
-- Link 1: [Github Pages](https://pacasoft.github.io/ravn-fron-code-challenge/ravn-challenge/dist/ravn-challenge/browser/)
+- Link 1: [Github Pages](https://pacasoft.github.io/ravn-fron-code-challenge/ravn-challenge/browser/)
 - link 2: [Self Hosted](https://ravn-challenge.pacasoft.cloud)
-
-ravn-user
-ravn-challenge

@@ -1,3 +1,7 @@
 .mat-icon {
   cursor: pointer;
 }
+
+.drag-handle {
+  cursor: move;
+}

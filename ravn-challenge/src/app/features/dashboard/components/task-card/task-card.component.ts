@@ -14,6 +14,7 @@ import { TaskListStore } from '../../../../core/store/idk/task.store';
 import { DeleteTaskModalComponent } from '../../../../shared/components/delete-task-modal/delete-task-modal.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { AppState } from '../../../../core/store/idk/app.store';
+import { CdkDragHandle } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-task-card',
@@ -29,6 +30,8 @@ import { AppState } from '../../../../core/store/idk/app.store';
     CommonModule,
     EditTaskModalComponent,
     NgxSkeletonLoaderModule,
+
+    CdkDragHandle
 
   ],
   templateUrl: './task-card.component.html',
