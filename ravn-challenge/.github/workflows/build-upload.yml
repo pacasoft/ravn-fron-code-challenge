@@ -42,3 +42,5 @@ jobs:
         with:
           BRANCH: prod
           FOLDER: dist/ravn-challenge/browser
+          base_href: /ravn-challenge
+          angular_dist_build_folder: /dist/ravn-challenge/browser
