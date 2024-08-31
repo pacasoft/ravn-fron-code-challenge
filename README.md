@@ -135,5 +135,4 @@ The app also shows a settings page showing the profile information.
 
 # :globe_with_meridians: Demo
 
-- Link 1: [Github Pages](https://pacasoft.github.io/ravn-fron-code-challenge/ravn-challenge/browser/)
-- link 2: [Self Hosted](https://ravn-challenge.pacasoft.cloud)
+- Link: [Self Hosted](https://ravn-challenge.pacasoft.cloud)
