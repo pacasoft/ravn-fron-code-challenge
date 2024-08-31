@@ -30,10 +30,8 @@ jobs:
       - name: 🔨 Build Project
         run: |
           npm install
+          cd ravn-challenge
           npm run build
-
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v4
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
